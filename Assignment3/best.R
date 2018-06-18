@@ -1,8 +1,8 @@
 best <- function(state, outcome) {
-  ## Read outcome data
+  # Read outcome data
   data <- read.csv("outcome-of-care-measures.csv")
   
-  ## Check that state and outcome are valid
+  # Check that state and outcome are valid
   states <- levels(data[, 7])[data[, 7]]
   state_flag <- FALSE
   for (i in 1:length(states)) {
@@ -18,7 +18,7 @@ best <- function(state, outcome) {
     stop ("invalid outcome")
   }
   
-  ## Return hospital name in that state with lowest 30-day death rate
+  # Return hospital name in that state with lowest 30-day death rate
   col <- if (outcome == "heart attack") {
     11
   } else if (outcome == "heart failure") {
